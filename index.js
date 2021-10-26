@@ -2,6 +2,8 @@ import express from 'express'
 import server from 'http'
 import { Server } from 'socket.io'
 
+const PORT = process.env.PORT || 7000
+
 const app = express()
 const serv = server.createServer(app)
 const io = new Server(serv, {
@@ -19,7 +21,7 @@ function IO() {
 
 async function start() {
   try {
-    serv.listen(7000, () => {
+    serv.listen(PORT, () => {
       IO()
       console.log('Все заебись')
     })
